@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>New Search</title>
+  </head>
+  <body>
+    <form action="/searches" method="post">
+      <input required type="text" id="input" name="input" placeholder="Enter a title or author"/>
+      <br/>
+      <input type="radio" name="titleOrAuthor" value="title" checked>Title</input>
+      <br/>
+      <input type="radio" name="titleOrAuthor" value="author">Author</input>
+      <br/>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
