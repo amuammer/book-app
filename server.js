@@ -7,6 +7,8 @@ require("dotenv").config();
 const client = new pg.Client(process.env.DATABASE_URL);
 global.DBclient = client;
 
+app.set("view engine", "ejs")
+
 // cors origin
 app.all("*", (req, res, next) => {
   console.log(`${req.method} ${req.url}`);
@@ -23,9 +25,9 @@ app.all("*", (req, res, next) => {
   next();
 });
 
-// hello World
+// main
 app.get("/", (req, res) => {
-  res.status(200).send({ msg: "Hello World" });
+  res.status(200).render("pages/index");
 });
 
 // page not found middleware
@@ -33,10 +35,12 @@ app.all("*", (req, res) => {
   res.status(404).send({ msg: "Sorry, page not found !" });
 })
 
+/*
 // error middleware
 app.use((err, req, res, next) => { // eslint-disable-line
   res.status(500).send({ msg: "Sorry, something went wrong !" });
-})
+});
+*/
 
 const PORT = process.env.PORT || 3000;
 
