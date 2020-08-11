@@ -1,0 +1,6 @@
+insert into books (title, author, isbn, image_url, description) values ('Adnan Syed', 'Roger Harrington', 'ISBN_101549852566
+', 'http://books.google.com/books/content?id=R-5VswEACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api',
+'
+ADNAN SYED: The Truth Behind The Serial Case and the Murder of Hae Min LeeIn 2014, the story of a decade-old murder of a high school senior in Baltimore, Maryland became a sensation when the podcast Serial finally told the story of Hae Min Lee, a popular student at Woodlawn High School who was murdered in January 1999. The little-known story was finally able to receive the national attention it deserved. The story of the horrific murder of a young girl with a promising future captivated 100 million listeners and generated an interest in the case. This growing interest and public awareness resulted in a new trial and previously ignored evidence to be taken into account. At the center of the case is the young man proven guilty and tried for the murder of his ex-girlfriend, Adnan Syed. Syed has now spent over half is life in prison and possibly for nothing and has proclaimed his innocence the entire time. Like many cases, this one is surrounded in doubt, mistrial, unreliable stories, and unreliable evidence which sent a potentially innocent man to prison for almost twenty years.
+'
+);
