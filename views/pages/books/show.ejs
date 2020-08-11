@@ -6,5 +6,7 @@
   </head>
   <body>
     <%- include('./detail', { book }) %>
+    <a href="/books/<%= book.id %>/edit"><button>Update</button></a>
+    <a href="/books/<%= book.id %>?_method=DELETE"><button>Delete</button></a>
   </body>
 </html>

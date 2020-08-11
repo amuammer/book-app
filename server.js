@@ -1,6 +1,16 @@
 const express = require("express");
 const app = express();
 
+// manual method override
+app.use((req, res, next) => {
+  const { _method } = req.query;
+  if (_method){
+    req.method = _method;
+  }
+  next();
+});
+
+
 const bodyParser = require("body-parser");
 
 // parse application/x-www-form-urlencoded
@@ -47,8 +57,18 @@ app.get("/books/:id", async (req, res) => {
   const id = req.params.id;
   if (!id) return res.status(400).send({ msg: "missed required param book id" });
   const { rows } = await Book.findById(id);
+  if (!rows[0]) return res.status(404).send({ msg: "book not found!" });
    const book = new Book(rows[0]);
   res.status(200).render("pages/books/show", { book });
+});
+
+app.get("/books/:id/edit", async (req, res) => {
+  const id = req.params.id;
+  if (!id) return res.status(400).send({ msg: "missed required param book id" });
+  const { rows } = await Book.findById(id);
+    if (!rows[0]) return res.status(404).send({ msg: "book not found!" });
+   const book = new Book(rows[0]);
+  res.status(200).render("pages/books/edit", { book });
 });
 
 app.get("/searches/new", (req, res) => {
@@ -71,7 +91,7 @@ app.post("/searches", (req, res, next) => {
 
 app.post("/books", async (req, res) => {
   try {
-  const newBook = new Book(req.body);
+    const newBook = new Book(req.body);
     const { rows } = await newBook.save();
     res.redirect(`/books/${rows[0].id}`);
   } catch (e) {
@@ -79,6 +99,22 @@ app.post("/books", async (req, res) => {
   }
 });
 
+
+app.put("/books/:id", async (req, res) => {
+  const id = req.params.id;
+  if (!id) return res.status(400).send({ msg: "missed required param book id" });
+  req.body.id = id; // add it to body id
+  const book = new Book(req.body);
+  await book.saveChanges();
+  res.status(200).redirect(`/books/${id}`);
+});
+
+app.delete("/books/:id", async (req, res) => {
+  const id = req.params.id;
+  if (!id) return res.status(400).send({ msg: "missed required param book id" });
+  await Book.deleteById(id);
+  res.status(200).redirect("/");
+});
 
 
 // page not found middleware
