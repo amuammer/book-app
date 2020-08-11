@@ -8,6 +8,7 @@
     <h1>Books Length <%= books.length %></h1>
     <% books.forEach((book) => { %>
       <%- include('./books/detail', { book }) %>
+      <a href="/books/<%= book.id %>"><button>View details</button></a>
     <% }); %>
   </body>
 </html>
