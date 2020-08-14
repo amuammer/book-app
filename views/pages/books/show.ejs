@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Book</title>
-  </head>
+<head>
+  <title>Book</title>
+  <%- include('../../layout/head') %>
+</head>
   <body>
-    <%- include('./detail', { book }) %>
-    <p><%= book.description %></p>
-    <a href="/books/<%= book.id %>/edit"><button>Update</button></a>
-    <a href="/books/<%= book.id %>?_method=DELETE"><button>Delete</button></a>
+    <%- include('../../layout/header') %>
+    <main class="flex-column">
+        <section class="bookSec">
+      <%- include('./detail', { book }) %>
+      <p><%= book.description.substring(0,200) %></p>
+      <div>
+      <a style="float: left; width: 40%;" class="btn btn-black" href="/books/<%= book.id %>/edit">Update</a>
+      <a style="float: left; width: 40%; margin-left: 10%" class="btn btn-black" href="/books/<%= book.id %>?_method=DELETE">Delete</a>
+    </div>
+  </section>
+  <%- include('../../layout/footer') %>
+  </main>
   </body>
 </html>

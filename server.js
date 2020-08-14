@@ -93,7 +93,7 @@ app.post("/books", async (req, res) => {
   try {
     const newBook = new Book(req.body);
     const { rows } = await newBook.save();
-    res.redirect(`/books/${rows[0].id}`);
+    res.redirect(`/`);
   } catch (e) {
     res.status(500).send({ msg: e.message });
   }

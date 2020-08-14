@@ -1,18 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>New Search</title>
-  </head>
+<head>
+  <title>New Search</title>
+  <%- include('../../layout/head') %>
+</head>
   <body>
+    <%- include('../../layout/header') %>
+    <h1>Search Book</h1>
+    <section class="search-form">
     <form action="/searches" method="post">
-      <input required type="text" id="input" name="input" placeholder="Enter a title or author"/>
-      <br/>
-      <input type="radio" name="titleOrAuthor" value="title" checked>Title</input>
-      <br/>
-      <input type="radio" name="titleOrAuthor" value="author">Author</input>
-      <br/>
-      <input type="submit" />
+      <div id="searchDiv">
+          <input required type="text" name="input" id="searchText" placeholder="Enter a title or author">
+      </div>
+      <div id="radioDiv">
+          <div class="btnRadio">
+              <label for="title">Title <input checked type="radio" id="title" name="titleOrAuthor" value="title"></label>
+          </div>
+          <div class="btnRadio">
+              <label for="author">Author <input type="radio" id="author" name="titleOrAuthor" value="author"></label>
+          </div>
+      </div>
+      <button type="submit">Search</button>
     </form>
+  </section>
+    <%- include('../../layout/footer') %>
   </body>
 </html>

@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Error</title>
-  </head>
+<head>
+  <title>Error</title>
+  <%- include('../layout/head') %>
+</head>
   <body>
-    <div><%= error %></div>
+    <%- include('../layout/header') %>
+    <body>
+      <div><%= error %></div>
+    </body>
+    <%- include('../layout/footer') %>
   </body>
 </html>

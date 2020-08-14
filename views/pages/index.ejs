@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Book App</title>
-  </head>
+<head>
+  <title>book app</title>
+  <%- include('../layout/head') %>
+</head>
   <body>
-    <h1>Books Length <%= books.length %></h1>
-    <% books.forEach((book) => { %>
-      <%- include('./books/detail', { book }) %>
-      <a href="/books/<%= book.id %>"><button>View details</button></a>
-    <% }); %>
+    <%- include('../layout/header') %>
+      <main>
+        <h1>Books Length <%= books.length %></h1>
+          <div id="mainWraper">
+          <% books.forEach((book) => { %>
+            <section class="bookSec">
+              <%- include('./books/detail', { book }) %>
+              <a class="btn btn-black" href="/books/<%= book.id %>">View details</a>
+            </section>
+          <% }); %>
+            </div>
+      </main>
+    <%- include('../layout/footer') %>
   </body>
 </html>
