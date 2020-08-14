@@ -1,0 +1,21 @@
+  /* Search Form */
+  #searchForm{
+    padding: 10px;
+  }
+#searchText{
+    align-self: center;
+    width: 100%;
+    border-radius: 5px;
+    border: 0;
+    height: 50px;
+}
+#searchDiv{
+    width: 100%;
+}
+.btnRadio{
+    background: #d8d8d8;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
